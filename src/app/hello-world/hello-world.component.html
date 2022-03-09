@@ -1,0 +1,36 @@
+
+<mat-card class="mycard">
+  <mat-card-header>
+    <mat-card-title>HELLO WORLD</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+
+
+
+    <form>
+      <mat-form-field >
+        <h2><mat-label>Digite seu nome </mat-label></h2>
+        <input matInput placeholder="Name" value={{person}}>
+      </mat-form-field>
+  </form>
+  <button mat-button (click)="cadastrar()">CONFIRMAR</button>
+  </mat-card-content>
+
+  <mat-card-actions>
+
+    <p>OLÁ, {{person}}</p>
+
+  </mat-card-actions>
+</mat-card>
+
+<table mat-table [dataSource]="person" class="mat-elevation-z8">
+  <!-- Name Column -->
+  <ng-container matColumnDef="nome">
+    <th mat-header-cell *matHeaderCellDef> Nome </th>
+    <td mat-cell *matCellDef="let person"> {{ person.nome }} </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
